@@ -500,11 +500,10 @@ The repository contains:
 
 <div align="center">
 
-## **Prabanjan S**
+## **Srideep Sarkar**
 
-### Data Analyst | Python | SQL | Data Analytics
+### Data Analyst | Python | SQL | Data Analytics | Data Mining 
 
-<a href="https://github.com/Prabanjan29">
 <img src="https://img.shields.io/badge/GitHub-Prabanjan29-181717?style=for-the-badge&logo=github&logoColor=white">
 </a>
 
