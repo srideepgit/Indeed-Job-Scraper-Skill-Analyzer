@@ -1,186 +1,214 @@
-# Indeed Job Market Scraper & Skill Intelligence Pipeline
+<div align="center">
 
-A Python-based job data collection and preprocessing pipeline that uses the **Apify API** to retrieve Indeed job listings and transform them into clean, structured datasets for analysis.
+# 🔎 Indeed Job Market Scraper & Skill Intelligence Pipeline
 
-The project accepts a job title as input, retrieves job postings through an Apify Actor, cleans HTML-formatted descriptions, detects selected technical skills, removes duplicate listings, sorts results by posting information, and exports the processed data to **CSV and formatted Excel files**.
+### 🚀 Automated Job Data Extraction • Data Cleaning • Skill Detection • Excel & CSV Reporting
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2F81F7&center=true&vCenter=true&width=850&lines=Automate+Indeed+Job+Data+Collection;Clean+and+Transform+Job+Listings;Detect+Technical+Skills;Export+Analysis-Ready+CSV+%26+Excel+Reports" alt="Typing Animation">
+
+<br>
+
+<img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Apify-API-00D084?style=for-the-badge&logo=apify&logoColor=white">
+<img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white">
+<img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-4B8BBE?style=for-the-badge">
+<img src="https://img.shields.io/badge/OpenPyXL-Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
+
+<br><br>
+
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge\&logo=github)](https://github.com/Prabanjan29/Cybernaut-Project-Indeed-Web-Scraper)
+[![Python](https://img.shields.io/badge/Built%20With-Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://www.python.org/)
+
+</div>
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-Job postings contain a mixture of structured and unstructured information such as job titles, companies, locations, salaries, benefits, ratings, posting dates, application links, and detailed descriptions.
+**Indeed Job Market Scraper & Skill Intelligence Pipeline** is a Python-based job data collection and preprocessing project that uses the **Apify API** to retrieve Indeed job listings and convert them into structured datasets.
 
-This project automates the collection and preprocessing of that information so the resulting dataset can be used for further job-market and skill-demand analysis.
+The pipeline accepts a job title, starts an Apify Actor, retrieves the resulting job data, cleans HTML descriptions, detects selected technical skills, removes duplicate listings, sorts the results, and exports the processed data into **CSV and formatted Excel files**.
 
-### Workflow
+> 🎯 **Goal:** Turn raw job-listing data into a clean, structured dataset that can be used for job-market and skill-demand analysis.
+
+---
+
+## ⚡ What This Project Does
 
 ```text
-Job Title Input
-       ↓
-   Apify API
-       ↓
-Indeed Job Listings
-       ↓
-HTML Description Cleaning
-       ↓
-Technical Skill Detection
-       ↓
-Duplicate Removal
-       ↓
-Sorting by Posted Date
-       ↓
-Structured DataFrame
-       ↓
-CSV + Excel Output
+                 🔎 JOB TITLE
+                      │
+                      ▼
+              ┌───────────────┐
+              │   APIFY API   │
+              │ Indeed Actor  │
+              └───────┬───────┘
+                      │
+                      ▼
+              📦 RAW JOB DATA
+                      │
+                      ▼
+            ┌───────────────────┐
+            │  DATA CLEANING    │
+            │ HTML → Plain Text │
+            └─────────┬─────────┘
+                      │
+                      ▼
+            🧑‍💻 SKILL DETECTION
+                      │
+                      ▼
+            ♻️ DUPLICATE REMOVAL
+                      │
+                      ▼
+             📅 SORTING RESULTS
+                      │
+                      ▼
+            ┌───────────────────┐
+            │ STRUCTURED DATA   │
+            └───────┬─────┬─────┘
+                    │     │
+                    ▼     ▼
+                 📄 CSV  📊 Excel
 ```
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
-### 🔎 Automated Job Data Collection
+<table>
+<tr>
+<td width="50%">
 
-The application sends a job-search request to an **Apify Actor** using the Apify API and retrieves the resulting dataset.
+### 🔎 Automated Scraping
 
-The script waits for the Actor run to finish before downloading the collected job records.
+Uses the **Apify API** to start an Indeed scraping Actor and retrieve job listings automatically.
 
-### 🧹 Job Description Cleaning
+</td>
 
-Job descriptions returned by the scraper can contain HTML markup. The project uses **BeautifulSoup** to convert the HTML description into readable plain text.
+<td width="50%">
 
-The stored description is limited to the first 500 characters.
+### 🧹 Data Cleaning
 
-### 🧑‍💻 Technical Skill Detection
+Uses **BeautifulSoup** to remove HTML markup and convert descriptions into readable text.
 
-The script scans cleaned job descriptions for a predefined set of technical skills:
+</td>
+</tr>
 
-* Python
-* Java
-* SQL
-* Excel
-* Machine Learning
-* AWS
-* Django
-* Flask
+<tr>
+<td width="50%">
 
-Detected skills are stored in a dedicated `Skills (detected)` column.
+### 🧑‍💻 Skill Detection
 
-> Skill detection is keyword-based and does not use a trained NLP model.
+Identifies predefined technical skills such as Python, SQL, Excel, AWS and Machine Learning.
+
+</td>
+
+<td width="50%">
 
 ### ♻️ Duplicate Removal
 
-Duplicate job records are removed using the following combination:
+Removes duplicate listings using:
 
-```text
-Job Title + Company + Location
-```
+`Job Title + Company + Location`
 
-This helps reduce repeated listings in the final dataset.
+</td>
+</tr>
 
-### 📅 Result Sorting
+<tr>
+<td width="50%">
 
-The processed data is sorted using the `Posted` field in descending order so newer job postings appear first when the source data provides that field.
+### 📅 Job Sorting
 
-### 📊 CSV & Excel Export
+Sorts processed records using the `Posted` field so newer listings appear first.
 
-The pipeline generates two output formats:
+</td>
 
-```text
-Data Analyst_cleaned_jobs.csv
-Data Analyst_cleaned_jobs.xlsx
-```
+<td width="50%">
 
-The Excel file is additionally formatted for easier review.
+### 📊 Excel & CSV Export
 
-### 🎨 Excel Formatting
+Creates structured CSV and formatted Excel reports for further analysis.
 
-The generated workbook includes:
-
-* Styled header row
-* White bold header text
-* Center-aligned headers
-* Automatic column-width adjustment
-
-The formatting is applied programmatically using **OpenPyXL**.
+</td>
+</tr>
+</table>
 
 ---
 
-## 🛠️ Technology Stack
+# 🛠️ Technology Stack
 
-| Technology    | Purpose                            |
-| ------------- | ---------------------------------- |
-| Python        | Core scraping and processing logic |
-| Apify API     | Job listing collection             |
-| Requests      | API communication                  |
-| Pandas        | Data transformation and export     |
-| BeautifulSoup | HTML description cleaning          |
-| OpenPyXL      | Excel creation and formatting      |
-| python-dotenv | Environment-variable loading       |
+<div align="center">
 
----
+|      Technology      | Purpose                         |
+| :------------------: | :------------------------------ |
+|     🐍 **Python**    | Core processing and automation  |
+|   🔌 **Apify API**   | Job data collection             |
+|    🌐 **Requests**   | API communication               |
+|     🐼 **Pandas**    | Data transformation             |
+| 🥣 **BeautifulSoup** | HTML parsing and cleaning       |
+|    📊 **OpenPyXL**   | Excel generation and formatting |
+| 🔐 **python-dotenv** | Environment-variable management |
 
-## 📂 Repository Structure
-
-```text
-Cybernaut-Project-Indeed-Web-Scraper/
-│
-├── scraper.py
-├── Data Analyst_cleaned_jobs.csv
-├── Data Analyst_cleaned_jobs.xlsx
-├── Indeed Web Scraper Report.pdf
-└── README.md
-```
+</div>
 
 ---
 
-## ⚙️ How the Script Works
+# 🧠 Skill Detection
 
-### 1. Enter a Job Title
+The current implementation uses a predefined keyword-based approach.
 
-When the program starts, it asks for a job title.
-
-Example:
+### Supported Skills
 
 ```text
-Enter Job Title: Data Analyst
+🐍 Python
+☕ Java
+🗄️ SQL
+📊 Excel
+🤖 Machine Learning
+☁️ AWS
+🌐 Django
+🔥 Flask
 ```
 
-### 2. Start the Apify Actor
+When a skill appears in a cleaned job description, it is added to the:
 
-The script creates an Apify Actor run using the Indeed search URL generated from the supplied job title.
+```text
+Skills (detected)
+```
 
-### 3. Wait for Completion
+column.
 
-The program checks the Actor run status periodically until it reaches a terminal state.
+> ℹ️ This is **keyword-based skill detection**, not a machine-learning or NLP classification model.
 
-Successful runs continue to dataset retrieval.
+---
 
-### 4. Retrieve Job Data
+# 🧹 Data Processing Pipeline
 
-After a successful run, the script retrieves the dataset generated by Apify.
+The processing stage performs several transformations.
 
-### 5. Clean and Transform Records
+### 1️⃣ HTML Cleaning
 
-For each job record, the script extracts fields including:
+Job descriptions returned by the source may contain HTML.
 
-* Job ID
-* Job Title
-* Company
-* Location
-* Remote
-* Salary
-* Job Type
-* Rating
-* Reviews
-* Posted
-* Benefits
-* Skills detected
-* Apply Link
-* Description
+The project uses BeautifulSoup to convert:
 
-### 6. Remove Duplicates
+```html
+<p>Experience with <b>Python</b> and SQL</p>
+```
 
-Records are deduplicated using:
+into readable text:
+
+```text
+Experience with Python and SQL
+```
+
+### 2️⃣ Skill Detection
+
+The cleaned description is checked against the predefined skill list.
+
+### 3️⃣ Duplicate Removal
+
+Duplicate records are removed using:
 
 ```python
 df.drop_duplicates(
@@ -189,85 +217,107 @@ df.drop_duplicates(
 )
 ```
 
-### 7. Export the Dataset
+### 4️⃣ Sorting
 
-The final DataFrame is written to both CSV and Excel.
+Results are sorted using the `Posted` field.
 
----
+### 5️⃣ Export
 
-## 📊 Dataset Fields
-
-| Column            | Description                                                       |
-| ----------------- | ----------------------------------------------------------------- |
-| Job ID            | Identifier associated with the job listing                        |
-| Job Title         | Position title                                                    |
-| Company           | Hiring company                                                    |
-| Location          | Job location                                                      |
-| Remote            | Indicates whether the location text identifies the role as remote |
-| Salary            | Salary information when available                                 |
-| Job Type          | Job type returned by the source                                   |
-| Rating            | Company rating when available                                     |
-| Reviews           | Number of company reviews when available                          |
-| Posted            | Posting information returned by the source                        |
-| Benefits          | Benefits returned by the source                                   |
-| Skills (detected) | Skills identified using keyword matching                          |
-| Apply Link        | External application link or job URL                              |
-| Description       | Cleaned job description, limited to 500 characters                |
-
----
-
-## 📁 Sample Output
-
-The repository includes processed output from a **Data Analyst** job search:
+The processed DataFrame is exported to:
 
 ```text
-Data Analyst_cleaned_jobs.csv
-Data Analyst_cleaned_jobs.xlsx
+📄 CSV
+📊 Excel
 ```
-
-The CSV and Excel files contain structured job information collected and processed by the pipeline.
 
 ---
 
-## 🚀 Getting Started
+# 📊 Dataset Structure
 
-### Prerequisites
+The generated dataset contains:
 
-Before running the project, make sure you have:
+| Column              | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `Job ID`            | Identifier associated with the listing      |
+| `Job Title`         | Position title                              |
+| `Company`           | Hiring company                              |
+| `Location`          | Job location                                |
+| `Remote`            | Remote indicator derived from location text |
+| `Salary`            | Salary information when available           |
+| `Job Type`          | Job type returned by the source             |
+| `Rating`            | Company rating when available               |
+| `Reviews`           | Number of company reviews                   |
+| `Posted`            | Posting information                         |
+| `Benefits`          | Available benefits                          |
+| `Skills (detected)` | Skills identified through keyword matching  |
+| `Apply Link`        | Job application URL                         |
+| `Description`       | Cleaned job description                     |
+
+---
+
+# 📂 Repository Structure
+
+```text
+Cybernaut-Project-Indeed-Web-Scraper/
+│
+├── 🐍 scraper.py
+│
+├── 📄 Data Analyst_cleaned_jobs.csv
+│
+├── 📊 Data Analyst_cleaned_jobs.xlsx
+│
+├── 📑 Indeed Web Scraper Report.pdf
+│
+└── 📘 README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## 1️⃣ Prerequisites
+
+You need:
 
 * Python 3.x
 * An Apify account
 * Access to an Indeed scraping Actor
 * Internet connection
 
-### Install Dependencies
+---
 
-Install the required Python packages:
+## 2️⃣ Install Dependencies
 
 ```bash
 pip install requests pandas beautifulsoup4 python-dotenv openpyxl
 ```
 
-### Configure Apify Credentials
+---
 
-Create a `.env` file in the project root:
+## 3️⃣ Configure Apify
+
+Create a `.env` file in the project directory:
 
 ```env
 APIFY_TOKEN=your_apify_token
 ACTOR_ID=your_actor_id
 ```
 
-The `.env` file should not be committed to GitHub.
+⚠️ **Never commit `.env` or your API token to GitHub.**
 
-### Run the Project
+---
 
-Execute:
+## 4️⃣ Run the Scraper
 
 ```bash
 python scraper.py
 ```
 
-Enter the desired job title when prompted.
+The program will ask:
+
+```text
+Enter Job Title:
+```
 
 Example:
 
@@ -275,22 +325,93 @@ Example:
 Enter Job Title: Data Analyst
 ```
 
-After processing, the output files will be generated using the entered job title.
-
-Example:
+The script then:
 
 ```text
-Data Analyst_cleaned_jobs.xlsx
-Data Analyst_cleaned_jobs.csv
+🚀 Starts Apify Actor
+        ↓
+⏳ Waits for completion
+        ↓
+📥 Retrieves dataset
+        ↓
+🧹 Cleans descriptions
+        ↓
+🧑‍💻 Detects skills
+        ↓
+♻️ Removes duplicates
+        ↓
+📅 Sorts records
+        ↓
+📄 Creates CSV
+        ↓
+📊 Creates formatted Excel
 ```
 
 ---
 
-## 🔐 Security
+# 📁 Output Files
 
-API credentials should never be hard-coded or publicly exposed.
+For a search such as:
 
-Use environment variables to store sensitive credentials.
+```text
+Data Analyst
+```
+
+the generated files are:
+
+```text
+Data Analyst_cleaned_jobs.csv
+Data Analyst_cleaned_jobs.xlsx
+```
+
+### 📄 CSV
+
+The CSV contains the structured processed dataset.
+
+### 📊 Excel
+
+The Excel output is formatted with:
+
+* Bold headers
+* Styled header background
+* Center-aligned headers
+* Automatically adjusted column widths
+
+---
+
+# 📈 Example Analytical Use Cases
+
+The resulting dataset can be used for further analysis such as:
+
+### 🧑‍💻 Skill Demand
+
+Which technical skills are most frequently requested?
+
+### 🏢 Company Analysis
+
+Which companies are hiring for similar roles?
+
+### 🌎 Location Analysis
+
+Which locations contain the most job listings?
+
+### 🏠 Remote Job Analysis
+
+How many listings are identified as remote?
+
+### 💰 Salary Analysis
+
+What salary information is available across collected listings?
+
+### 🔗 Skill Combinations
+
+Which technical skills frequently appear together?
+
+---
+
+# 🔐 Security
+
+API credentials should **never** be hard-coded in a public repository.
 
 Recommended `.gitignore`:
 
@@ -300,72 +421,95 @@ __pycache__/
 *.pyc
 ```
 
-If an API token has previously been committed to a public repository, revoke or rotate the token before continuing to use the project.
+### ⚠️ Important
+
+If an API token has ever been committed to a public GitHub repository, **revoke or rotate it immediately** and replace it with a new credential stored through environment variables.
 
 ---
 
-## ⚠️ Limitations
+# ⚠️ Current Limitations
 
-The current implementation has the following limitations:
+The current implementation has several limitations:
 
 * Skill detection uses a predefined keyword list.
-* Keyword matching may produce false positives.
-* Only the first 500 characters of each job description are stored.
-* The script processes up to 50 jobs from the retrieved dataset.
-* Remote classification is based on the presence of `"remote"` in the location field.
+* Keyword matching can produce false positives.
+* Only the first **500 characters** of each description are stored.
+* The script processes up to **50 jobs** from the retrieved dataset.
+* Remote classification is based on `"remote"` appearing in the location text.
 * The `Posted` field is sorted based on the value returned by the source.
-* Salary and other optional fields depend on the information available in the job listing.
-* The project does not currently use a trained machine-learning or NLP model for skill extraction.
+* Salary and optional fields depend on the information available in the listing.
+* The project does not currently use a trained ML/NLP model for skill extraction.
 
 ---
 
-## 📈 Potential Improvements
+# 🚧 Future Improvements
 
-Future versions could include:
-
-* Expanded technical skill dictionaries
-* NLP-based skill extraction
-* Job seniority classification
-* Salary normalization
-* Location standardization
-* Job-category classification
-* Improved date parsing
-* Job-ID-based duplicate detection
-* PostgreSQL database integration
-* Scheduled scraping
-* Automated data refresh
-* Power BI dashboard integration
-* Skill-demand trend analysis
-
----
-
-## 🎯 Example Analytical Use Cases
-
-The processed dataset can be used to investigate questions such as:
-
-* Which technical skills appear most frequently in Data Analyst job postings?
-* Which companies are hiring for similar positions?
-* Which locations have the highest number of job listings?
-* How frequently are remote opportunities appearing?
-* What salary information is available across job postings?
-* Which technical skills commonly appear together?
+```text
+🔹 NLP-based skill extraction
+🔹 Expanded technical skill dictionary
+🔹 Job seniority classification
+🔹 Salary normalization
+🔹 Location standardization
+🔹 Improved date parsing
+🔹 Job-ID-based duplicate detection
+🔹 PostgreSQL database integration
+🔹 Scheduled scraping
+🔹 Automated data refresh
+🔹 Power BI integration
+🔹 Skill-demand trend analysis
+🔹 Job-category classification
+```
 
 ---
 
-## 💡 Skills Demonstrated
+# 🎯 What This Project Demonstrates
 
-This project demonstrates practical experience with:
+<div align="center">
 
-**Python · API Integration · Apify · Web Data Extraction · Pandas · Data Cleaning · HTML Parsing · Keyword-Based Skill Detection · Deduplication · Data Transformation · CSV Processing · Excel Automation**
+### Technical Skills
+
+`Python` • `REST API` • `Apify` • `Web Data Extraction` • `Pandas` • `BeautifulSoup`
+
+### Data Skills
+
+`Data Cleaning` • `Data Transformation` • `Deduplication` • `Keyword Extraction`
+
+### Reporting Skills
+
+`CSV Processing` • `Excel Automation` • `OpenPyXL` • `Structured Data Export`
+
+</div>
 
 ---
 
-## 👤 Author
+# 📑 Project Deliverables
 
-**Prabanjan S**
+The repository contains:
 
-GitHub: **[@Prabanjan29](https://github.com/Prabanjan29)**
+| Deliverable     | Description                                |
+| --------------- | ------------------------------------------ |
+| 🐍 `scraper.py` | Main Python scraping and processing script |
+| 📄 `.csv`       | Structured processed job dataset           |
+| 📊 `.xlsx`      | Formatted Excel version of the dataset     |
+| 📑 `.pdf`       | Project report                             |
+| 📘 `README.md`  | Project documentation                      |
 
 ---
 
-⭐ If you find this project useful, consider giving the repository a star.
+# 👤 Author
+
+<div align="center">
+
+## **Prabanjan S**
+
+### Data Analyst | Python | SQL | Data Analytics
+
+<a href="https://github.com/Prabanjan29">
+<img src="https://img.shields.io/badge/GitHub-Prabanjan29-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+<br><br>
+
+⭐ **If you find this project useful, consider giving the repository a star!**
+
+</div>
